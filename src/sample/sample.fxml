@@ -1,0 +1,1040 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="480.0" minWidth="853.33" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <right>
+      <VBox alignment="BASELINE_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <image>
+                  <Image url="@img_avatar.png" />
+               </image>
+               <effect>
+                  <ColorAdjust />
+               </effect></ImageView>
+            <Label focusTraversable="false" text="کریم مظفری" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+               <effect>
+                  <Bloom />
+               </effect>
+            </Label>
+            <Separator focusTraversable="false" opacity="0.3" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets top="18.0" />
+               </VBox.margin>
+            </Separator>
+            <JFXButton fx:id="homeBtn" focusTraversable="false" onAction="#homeBtnClicked" prefHeight="40.0" prefWidth="200.0" text="خانه" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="15.0" top="15.0" />
+               </padding>
+            </JFXButton>
+            <JFXButton fx:id="ownerBtn" focusTraversable="false" onAction="#ownerBtnClicked" prefHeight="40.0" prefWidth="200.0" text="مالکین" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="6.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="15.0" top="15.0" />
+               </padding>
+            </JFXButton>
+            <JFXButton fx:id="propertyBtn" focusTraversable="false" onAction="#propertyBtnClicked" prefHeight="40.0" prefWidth="200.0" text="املاک" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="6.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="15.0" top="15.0" />
+               </padding>
+            </JFXButton>
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="homePanel" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;">
+               <children>
+                  <Label text="خانه">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Tahoma" size="24.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox fx:id="ownerPanel" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" visible="false">
+               <children>
+                  <Label text="مالکین">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Tahoma" size="24.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="62.0" prefWidth="450.0">
+                     <children>
+                        <JFXButton fx:id="showAddOwnerPanelBtn" buttonType="RAISED" focusTraversable="false" onAction="#showAddOwnerPanelBtnClicked" prefHeight="25.0" style="-fx-background-color: rgb(0, 160, 255);" text="ثبت مالک جدید" textFill="WHITE">
+                           <font>
+                              <Font name="Tahoma Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="8.0" right="5.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="ownerSearchBtn" buttonType="RAISED" focusTraversable="false" onAction="#ownerSearchBtnClicked" prefHeight="25.0" style="-fx-background-color: gray;" text="جستجو" textFill="WHITE">
+                           <font>
+                              <Font name="Tahoma Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="12.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXTextField fx:id="ownerSearchText" labelFloat="true" nodeOrientation="RIGHT_TO_LEFT" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets right="8.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Tahoma" size="12.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="ownerSearchParamCombo" labelFloat="true" nodeOrientation="RIGHT_TO_LEFT" onAction="#ownerSearchParamComboAction" promptText="پارامتر">
+                           <HBox.margin>
+                              <Insets right="8.0" />
+                           </HBox.margin>
+                        </JFXComboBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <TableView fx:id="ownerTable" focusTraversable="false" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#ownerTableDoubleClicked" prefWidth="450.0" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="ownerIdCol" prefWidth="75.0" text="شناسه" />
+                      <TableColumn fx:id="ownerFirstNameCol" prefWidth="75.0" text="نام" />
+                        <TableColumn fx:id="ownerLastNameCol" prefWidth="75.0" text="نام خانوادگی" />
+                        <TableColumn fx:id="ownerNationalIdCol" prefWidth="75.0" text="کد ملی" />
+                        <TableColumn fx:id="ownerShenasCol" prefWidth="101.0" text="شماره شناسنامه" />
+                    </columns>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </TableView>
+               </children>
+            </VBox>
+            <VBox fx:id="propertyPanel" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" visible="false">
+               <children>
+                  <Label text="املاک">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Tahoma" size="24.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="62.0" prefWidth="450.0">
+                     <children>
+                        <JFXButton fx:id="showAddPropertyPanelBtn" buttonType="RAISED" focusTraversable="false" onAction="#showAddPropertyPanelBtnClicked" prefHeight="25.0" style="-fx-background-color: rgb(0, 160, 255);" text="ثبت ملک جدید" textFill="WHITE">
+                           <font>
+                              <Font name="Tahoma Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="8.0" right="5.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="propertySearchBtn" buttonType="RAISED" focusTraversable="false" onAction="#propertySearchBtnClicked" prefHeight="25.0" style="-fx-background-color: gray;" text="جستجو" textFill="WHITE">
+                           <font>
+                              <Font name="Tahoma Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="12.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXTextField fx:id="propertySearchText" labelFloat="true" nodeOrientation="RIGHT_TO_LEFT" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets right="8.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Tahoma" size="12.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="propertySearchParamCombo" labelFloat="true" nodeOrientation="RIGHT_TO_LEFT" onAction="#propertySearchParamComboAction" promptText="پارامتر">
+                           <HBox.margin>
+                              <Insets right="8.0" />
+                           </HBox.margin>
+                        </JFXComboBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <TableView fx:id="propertyTable" focusTraversable="false" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#propertyTableDoubleClicked" prefWidth="450.0" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="propertyIdCol" prefWidth="75.0" text="شناسه" />
+                        <TableColumn fx:id="propertyPelakNumberCol" prefWidth="75.0" text="شماره پلاک" />
+                        <TableColumn fx:id="propertyOwnerCol" prefWidth="75.0" text="مالک" />
+                        <TableColumn fx:id="propertyLandTypeCol" prefWidth="75.0" text="نوع زمین" />
+                        <TableColumn fx:id="propertyCityCol" prefWidth="75.0" text="شهر" />
+                        <TableColumn fx:id="propertyRoostaCol" prefWidth="75.0" text="روستا" />
+                     </columns>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </TableView>
+               </children>
+            </VBox>
+            <VBox fx:id="addOwnerPanel" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" visible="false">
+               <children>
+                  <Label fx:id="addOwnerTitleLbl" text="ثبت مالک جدید">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Tahoma" size="24.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
+                  <GridPane nodeOrientation="RIGHT_TO_LEFT" vgap="6.0" VBox.vgrow="ALWAYS">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="411.0" minWidth="10.0" prefWidth="117.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="402.0" minWidth="10.0" prefWidth="333.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0">
+                           <children>
+                              <Label text="نام *">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="نام خانوادگی *">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                           <children>
+                              <Label text="نام پدر">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="113.0" GridPane.rowIndex="3">
+                           <children>
+                              <Label text="جنسیت *">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+                           <children>
+                              <Label text="کد ملی *">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+                           <children>
+                              <Label text="شماره شناسنامه *">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="6">
+                           <children>
+                              <Label text="شماره تلفن">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="7">
+                           <children>
+                              <Label text="شهر">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <JFXTextField fx:id="ownerFirstNameText" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets right="24.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="ownerLastNameText" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="24.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="ownerFatherText" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="24.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <children>
+                              <JFXRadioButton fx:id="ownerMaleRadio" text="مرد">
+                                 <HBox.margin>
+                                    <Insets right="16.0" />
+                                 </HBox.margin>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="genderRadioGroup" />
+                                 </toggleGroup>
+                              </JFXRadioButton>
+                              <JFXRadioButton fx:id="ownerFemaleRadio" text="زن" toggleGroup="$genderRadioGroup" />
+                           </children>
+                        </HBox>
+                        <JFXTextField fx:id="ownerNationalIdText" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets right="24.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="ownerShenasText" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets right="24.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="ownerPhoneText" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets right="24.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="ownerCityText" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets right="24.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </GridPane>
+                  <BorderPane>
+                     <right>
+                        <Label fx:id="addOwnerErrorMessageLbl" textFill="RED" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="Tahoma" size="12.0" />
+                           </font>
+                        </Label>
+                     </right>
+                     <VBox.margin>
+                        <Insets bottom="8.0" left="24.0" right="24.0" top="12.0" />
+                     </VBox.margin>
+                     <left>
+                        <HBox prefHeight="63.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <JFXButton fx:id="submitOwnerInfoBtn" onAction="#submitOwnerInfoBtnClicked" prefHeight="35.0" style="-fx-background-color: rgb(0, 160, 255);" text="ثبت اطلاعات" textFill="WHITE">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="cancelOwnerSubmissionBtn" onAction="#cancelOwnerSubmissionBtnClicked" prefHeight="35.0" prefWidth="43.0" style="-fx-background-color: gray;" text="لغو" textFill="WHITE">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="8.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </left>
+                  </BorderPane>
+               </children>
+            </VBox>
+            <VBox fx:id="addPropertyPanel" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" visible="false">
+               <children>
+                  <Label text="ثبت ملک جدید">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Tahoma" size="24.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
+                  <GridPane nodeOrientation="RIGHT_TO_LEFT" vgap="8.0" VBox.vgrow="ALWAYS">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="411.0" minWidth="10.0" prefWidth="117.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="402.0" minWidth="10.0" prefWidth="333.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0">
+                           <children>
+                              <Label focusTraversable="false" text="مالک *">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                              <Label focusTraversable="false" text="شماره پلاک *">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                           <children>
+                              <Label focusTraversable="false" text="مساحت *">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="113.0" GridPane.rowIndex="3">
+                           <children>
+                              <Label focusTraversable="false" text="نوع زمین *">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+                           <children>
+                              <Label focusTraversable="false" text="شهر *">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+                           <children>
+                              <Label focusTraversable="false" text="روستا">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="6" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="7" />
+                        <JFXComboBox minWidth="309.0" GridPane.columnIndex="1" />
+                        <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="24.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <JFXTextField labelFloat="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets right="24.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="propertyTypesCombo" minWidth="309.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <JFXTextField labelFloat="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets right="24.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <JFXTextField labelFloat="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets right="24.0" />
+                           </GridPane.margin>
+                        </JFXTextField>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <children>
+                              <JFXCheckBox text="منابع طبیعی">
+                                 <HBox.margin>
+                                    <Insets right="8.0" />
+                                 </HBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox text="رود">
+                                 <HBox.margin>
+                                    <Insets right="8.0" />
+                                 </HBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox text="ویزیت کارشناس">
+                                 <HBox.margin>
+                                    <Insets right="8.0" />
+                                 </HBox.margin>
+                              </JFXCheckBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <children>
+                              <JFXCheckBox text="گزارش کارشناس">
+                                 <HBox.margin>
+                                    <Insets right="8.0" />
+                                 </HBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox text="دفتر اسناد">
+                                 <HBox.margin>
+                                    <Insets right="8.0" />
+                                 </HBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox text="سند">
+                                 <HBox.margin>
+                                    <Insets right="8.0" />
+                                 </HBox.margin>
+                              </JFXCheckBox>
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </GridPane>
+                  <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="450.0">
+                     <children>
+                        <JFXButton prefHeight="35.0" style="-fx-background-color: rgb(0, 160, 255);" text="ثبت اطلاعات" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="24.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Tahoma Bold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox fx:id="ownerInfoPanel" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" visible="false">
+               <children>
+                  <Label text="اطلاعات مالک">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Tahoma" size="24.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="450.0">
+                     <children>
+                        <JFXButton prefHeight="35.0" style="-fx-background-color: rgb(0, 160, 255);" text="ثبت ملک جدید" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="24.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Tahoma Bold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="showEditOwnerPanelBtn" onAction="#showEditOwnerPanelBtnClicked" prefHeight="35.0" style="-fx-background-color: rgb(0, 204, 153);" text="ویرایش اطلاعات" textFill="WHITE">
+                           <font>
+                              <Font name="Tahoma Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="8.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <GridPane nodeOrientation="RIGHT_TO_LEFT" vgap="8.0" VBox.vgrow="ALWAYS">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="411.0" minWidth="10.0" prefWidth="148.5" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="402.0" minWidth="10.0" prefWidth="184.5" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="402.0" minWidth="10.0" prefWidth="154.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="402.0" minWidth="10.0" prefWidth="219.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0">
+                                 <children>
+                                    <Label focusTraversable="false" text="نام :">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label focusTraversable="false" text="نام پدر :">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label focusTraversable="false" text="کد ملی :">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="113.0" GridPane.rowIndex="3">
+                                 <children>
+                                    <Label focusTraversable="false" text="شماره تلفن :">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="2">
+                                 <children>
+                                    <Label focusTraversable="false" text="نام خانوادگی :">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label focusTraversable="false" text="جنسیت :">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label focusTraversable="false" text="شماره شناسنامه :">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <children>
+                                    <Label focusTraversable="false" text="شهر :">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <Label fx:id="ownerInfoFirstNameLbl" focusTraversable="false">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="3">
+                                 <children>
+                                    <Label fx:id="ownerInfoLastNameLbl" focusTraversable="false">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label fx:id="ownerInfoFatherLbl" focusTraversable="false">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label fx:id="ownerInfoGenderLbl" focusTraversable="false">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label fx:id="ownerInfoNationalIdLbl" focusTraversable="false">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label fx:id="ownerInfoShenasLbl" focusTraversable="false">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <children>
+                                    <Label fx:id="ownerInfoPhoneLbl" focusTraversable="false">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                 <children>
+                                    <Label fx:id="ownerInfoCityLbl" focusTraversable="false">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </GridPane>
+                     </children>
+                  </VBox>
+                  <TableView nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="C1" />
+                      <TableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </TableView>
+               </children>
+            </VBox>
+            <VBox fx:id="propertyInfoPanel" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" visible="false">
+               <children>
+                  <Label text="اطلاعات ملک">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Tahoma" size="24.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="450.0">
+                     <children>
+                        <JFXButton prefHeight="35.0" style="-fx-background-color: rgb(0, 160, 255);" text="رفتن به صفحه مالک" textFill="WHITE">
+                           <font>
+                              <Font name="Tahoma Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="24.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton prefHeight="35.0" style="-fx-background-color: rgb(0, 204, 153);" text="ویرایش اطلاعات" textFill="WHITE">
+                           <font>
+                              <Font name="Tahoma Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="8.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <GridPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="300.0" prefWidth="704.0" vgap="8.0" VBox.vgrow="ALWAYS">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="411.0" minWidth="10.0" prefWidth="148.5" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="402.0" minWidth="10.0" prefWidth="184.5" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="402.0" minWidth="10.0" prefWidth="154.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="402.0" minWidth="10.0" prefWidth="219.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="2">
+                           <children>
+                              <Label focusTraversable="false" text="شماره پلاک :">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <children>
+                              <Label focusTraversable="false" text="نوع زمین :">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <children>
+                              <Label focusTraversable="false" text="چک رود :">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="113.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                           <children>
+                              <Label focusTraversable="false" text="گزارش کارشناس :">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.rowIndex="1">
+                           <children>
+                              <Label focusTraversable="false" text="مساحت :">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.rowIndex="2">
+                           <children>
+                              <Label focusTraversable="false" text="چک منابع :">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.rowIndex="3">
+                           <children>
+                              <Label focusTraversable="false" text="ویزیت کارشناس :">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.rowIndex="4">
+                           <children>
+                              <Label focusTraversable="false" text="دفتر اسناد :">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="1">
+                           <children>
+                              <Label focusTraversable="false">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="3">
+                           <children>
+                              <Label focusTraversable="false">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label focusTraversable="false">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <children>
+                              <Label focusTraversable="false">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <Label focusTraversable="false">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                           <children>
+                              <Label focusTraversable="false">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <children>
+                              <Label focusTraversable="false">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                           <children>
+                              <Label focusTraversable="false">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0">
+                           <children>
+                              <Label focusTraversable="false" text="مالک :">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                           <children>
+                              <Label focusTraversable="false" text="سند :">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.rowIndex="5">
+                           <children>
+                              <Label focusTraversable="false" text="شهر :">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="144.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                           <children>
+                              <Label focusTraversable="false" text="روستا :">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                     </VBox.margin>
+                  </GridPane>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>
